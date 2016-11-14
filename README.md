@@ -10,6 +10,14 @@ python googlenet_predict.py -u http://find-travel.cdn-dena.com/picture/articlebo
 `-u`オプションは省略可能。
 
 
+## Inception Module構造
+![Inception Module構造](sample_images/2.jpg)
+
+## GoogLeNet構造
+![GoogleNet構造](sample_images/1.jpg)
+
+
+
 ## GoogLeNetのチューニング
 まずは `tuned_googlenet.py` を編集してニューラルネットワークの構成を変える。CNNでは深層に行くほど画像の根本的な特徴量が抽出されるので、基本的に出力層に近いレイヤーだけ取り替えればOK。ここでは、全inception module層の学習済みパラメータを固定し、以下の層のみ取り替えて再学習を行わせる。
 
