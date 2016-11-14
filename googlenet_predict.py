@@ -20,7 +20,7 @@ def main(url='http://find-travel.cdn-dena.com/picture/articlebody/38214', gpu_nu
 
     # use gpu
     if gpu_num > 0:
-         cuda.get_device(gpu_num).user()
+         cuda.get_device(gpu_num).use()
          googlenet.to_gpu()
 
     # load image
