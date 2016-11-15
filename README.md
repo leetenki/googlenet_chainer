@@ -29,6 +29,16 @@ loss = (loss1 + loss2) * 0.3 + loss3
 
 
 ## GoogLeNetのチューニング
+チューニングでは以下のファイルを使う。
+
+```
+tuned_googlenet.py # ファインチューニングするGoogLeNetの構造定義
+convert_caffe_model.py # caffe_modelから、学習済みパラメータをchainerのモデルへコピーして、chainerのモデルとして保存するスクリプト。
+tuned_googlenet.model # convert_caffe_model.pyで出力されるchainerのモデル(パラメータ設定済み)
+train_googlenet.py # tuned_googlenet.modelを読み込んで、学習を行う。
+
+```
+
 まずは `tuned_googlenet.py` を編集してニューラルネットワークの構成を変える。CNNでは深層に行くほど画像の根本的な特徴量が抽出されるので、基本的に出力層に近いレイヤーだけ取り替えればOK。ここでは、全inception module層の学習済みパラメータを固定し、以下の層のみ取り替えて再学習を行わせる。
 
 - 分岐点1のloss1\_conv層、loss1\_fc1層、loss1\_fc2層
