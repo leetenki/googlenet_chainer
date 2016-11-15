@@ -24,8 +24,8 @@ def main(url='http://find-travel.cdn-dena.com/picture/articlebody/38214', gpu_nu
          googlenet.to_gpu()
 
     # load image
-    img = cv2.resize(cv2.imread(image_file_path), (227, 227)).astype(np.float32)
-    img = img.transpose(2, 0, 1).reshape(1, 3, 227, 227)
+    img = cv2.resize(cv2.imread(image_file_path), (224, 224)).astype(np.float32)
+    img = img.transpose(2, 0, 1).reshape(1, 3, 224, 224)
 
     # forward
     x = Variable(img)
